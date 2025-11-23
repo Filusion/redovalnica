@@ -41,8 +41,8 @@ func main() {
 			r := redovalnica.New(stOcen, minOc, maxOc)
 
 			// add some sample students
-			r.AddStudent("63230454", "Filip", "Vichoroski", []int{10, 10, 9, 9, 8})
-			r.AddStudent("63230423", "Angel", "Karali", []int{8, 9, 6, 7, 8})
+			r.AddStudent("35755313", "Johnny", "Depp", []int{10, 10, 9, 9, 8})
+			r.AddStudent("29013526", "Jack", "Black", []int{8, 9, 6, 7, 8})
 			r.AddStudent("63233333", "Peter", "Griffin", []int{5, 5, 4, 7, 6})
 
 			// print all grades
@@ -51,13 +51,13 @@ func main() {
 			fmt.Print(r.IzpisiKoncniUspeh())
 
 			// example: add a new grade
-			if err := r.DodajOceno("63230454", 9); err != nil {
+			if err := r.DodajOceno("35755313", 9); err != nil {
 				fmt.Printf("DodajOceno error: %v\n", err)
 			} else {
-				fmt.Println("Added grade to 63230454")
+				fmt.Printf("Added grade to 35755313\n\n")
 			}
 
-			fmt.Println("After adding a grade:")
+			fmt.Println("After adding a grade:\n-----------------------------")
 			fmt.Println(r.IzpisVsehOcen())
 
 			return nil

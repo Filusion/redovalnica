@@ -104,6 +104,7 @@ func (r *Redovalnica) IzpisiKoncniUspeh() string {
 			out += "Neuspešen študent\n"
 		}
 	}
+	out += "\n"
 	return out
 }
 
