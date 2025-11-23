@@ -40,8 +40,14 @@ func New(stOcen, minOcena, maxOcena int) *Redovalnica {
 }
 
 // AddStudent adds a new student record (helper utility used by main).
-func (r *Redovalnica) AddStudent(vpisna, ime, priimek string, ocene []int) {
+func (r *Redovalnica) AddStudent(vpisna, ime, priimek string, ocene []int) error {
+	for _, ocena := range ocene {
+		if ocena < r.MinOcena || ocena > r.MaxOcena {
+			return fmt.Errorf("grade %d out of bounds (%d..%d)", ocena, r.MinOcena, r.MaxOcena)
+		}
+	}
 	r.studenti[vpisna] = Student{Ime: ime, Priimek: priimek, Ocene: ocene}
+	return nil
 }
 
 // DodajOceno adds a grade to a student identified by vpisna.

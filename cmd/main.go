@@ -41,9 +41,17 @@ func main() {
 			r := redovalnica.New(stOcen, minOc, maxOc)
 
 			// add some sample students
-			r.AddStudent("35755313", "Johnny", "Depp", []int{10, 10, 9, 9, 8})
-			r.AddStudent("29013526", "Jack", "Black", []int{8, 9, 6, 7, 8})
-			r.AddStudent("63233333", "Peter", "Griffin", []int{5, 5, 4, 7, 6})
+			if err := r.AddStudent("35755313", "Johnny", "Depp", []int{10, 10, 9, 9, 8}); err != nil {
+				fmt.Printf("Student wasn't added. AddStudent error: %v\n\n", err)
+			}
+
+			if err := r.AddStudent("29013526", "Jack", "Black", []int{8, 9, 6, 7, 8}); err != nil {
+				fmt.Printf("Student wasn't added. AddStudent error: %v\n\n", err)
+			}
+
+			if err := r.AddStudent("63233333", "Peter", "Griffin", []int{5, 5, 4, 7, 6}); err != nil {
+				fmt.Printf("Student wasn't added. AddStudent error: %v\n\n", err)
+			}
 
 			// print all grades
 			fmt.Println(r.IzpisVsehOcen())
