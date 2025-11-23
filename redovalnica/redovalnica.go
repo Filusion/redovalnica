@@ -45,7 +45,6 @@ func (r *Redovalnica) AddStudent(vpisna, ime, priimek string, ocene []int) {
 }
 
 // DodajOceno adds a grade to a student identified by vpisna.
-// Returns an error if the student doesn't exist or the grade is out of bounds.
 func (r *Redovalnica) DodajOceno(vpisna string, ocena int) error {
 	if ocena < r.MinOcena || ocena > r.MaxOcena {
 		return fmt.Errorf("grade %d out of bounds (%d..%d)", ocena, r.MinOcena, r.MaxOcena)
