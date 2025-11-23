@@ -92,6 +92,10 @@ func (r *Redovalnica) IzpisiKoncniUspeh() string {
 			out += "No grades\n"
 			continue
 		}
+		if len(s.Ocene) < r.StOcen {
+			out += "Neuspešen študent (premalo ocen)\n"
+			continue
+		}
 		if avg >= 9 {
 			out += "Odličen student!\n"
 		} else if avg >= 6 {
